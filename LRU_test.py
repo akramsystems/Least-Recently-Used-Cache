@@ -31,6 +31,12 @@ class TestLRUCache(unittest.TestCase):
         self.assertEqual(testCache.get(1), "test")
         return
 
+    def test_delete(self):
+        testCache = CacheLRU(1)
+        testCache.put(1, "test")
+        testCache.delete(1)
+        self.assertEqual(False, testCache.get(1))
+
     def test_remove(self):
         testCache = CacheLRU(10)
         for i in range(10):

@@ -54,8 +54,7 @@ class CacheLRU(object):
     # Get the value for an associated key
     def get(self, key):
         if self.cache.get(key) == None:
-            print("There is no obj:", str(key))
-            pass
+            return False
         else:
             self.cacheCount[key] += 1
             return self.cache.get(key)
@@ -65,6 +64,15 @@ class CacheLRU(object):
         self.cache = {}
         self.cacheCount = {}
         return
+
+    # delete a specific key
+    def delete(self, key):
+        if self.get(key):
+            self.cache.pop(key)
+            self.cacheCount.pop(key)
+            return True
+        else:
+            pass
 
     def _removeLRU(self):
         min_cnt = inf
