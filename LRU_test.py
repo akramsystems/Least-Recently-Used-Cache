@@ -11,7 +11,7 @@ class TestLRUCache(unittest.TestCase):
         self.assertIsInstance(testCache, CacheLRU)
         return
 
-    def test_capcity(self):
+    def test_capacity(self):
         SIZE = 10
         testCache = CacheLRU(10)
         for i in range(SIZE+1):
