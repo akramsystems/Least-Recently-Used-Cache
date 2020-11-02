@@ -22,7 +22,7 @@ class TestLRUCache(unittest.TestCase):
     def test_put(self):
         testCache = CacheLRU(1)
         testCache.put(1, "test")
-        self.assertEqual(testCache.get(1), "test")
+        self.assertEqual(testCache.cache.get(1), "test")
         return
 
     def test_get(self):
